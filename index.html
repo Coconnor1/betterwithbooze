@@ -138,7 +138,7 @@ section{padding:96px 20px;}
 .pkg-header h2{font-family:'Playfair Display',serif;color:white;font-size:1.8rem;line-height:1.2;margin-bottom:9px;}
 .pkg-header p{color:rgba(255,255,255,.72);font-size:.93rem;line-height:1.7;}
 .pkg-body{background:white;padding:32px;}
-.feature-list{list-style:none;text-align:left;display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
+.feature-list{list-style:none;text-align:left;display:flex;flex-direction:column;gap:12px;margin-bottom:20px;}
 .feature-list li{display:flex;align-items:flex-start;gap:11px;font-size:.95rem;color:#2A3F55;line-height:1.5;}
 .chk{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:900;flex-shrink:0;margin-top:2px;}
 .pkg-card.featured .chk{background:linear-gradient(135deg,var(--orange),var(--gold));color:white;}
@@ -147,6 +147,17 @@ section{padding:96px 20px;}
 .pkg-card.featured .pkg-btn{background:linear-gradient(135deg,var(--orange),var(--gold));color:white;box-shadow:0 5px 18px rgba(244,98,42,.32);}
 .pkg-card.standard .pkg-btn{background:linear-gradient(135deg,var(--teal),var(--teal-light));color:white;box-shadow:0 5px 18px rgba(27,138,143,.32);}
 .pkg-btn:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.18);}
+
+/* DRY HIRE NOTE */
+.dry-hire-note{display:flex;align-items:flex-start;gap:12px;background:rgba(244,98,42,.07);border:1.5px solid rgba(244,98,42,.22);border-radius:12px;padding:14px 16px;margin-bottom:20px;}
+.dry-hire-icon{font-size:1.4rem;flex-shrink:0;margin-top:1px;}
+.dry-hire-note strong{display:block;color:var(--orange);font-size:.82rem;font-weight:900;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;}
+.dry-hire-note p{color:#4A6380;font-size:.88rem;line-height:1.6;margin:0;}
+
+/* OVERTIME NOTE */
+.overtime-note{display:flex;align-items:flex-start;gap:12px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.28);border-radius:12px;padding:14px 18px;color:rgba(255,255,255,.78);font-size:.87rem;line-height:1.65;margin-top:-10px;margin-bottom:22px;}
+.ot-icon{font-size:1.2rem;flex-shrink:0;margin-top:1px;}
+.overtime-note strong{color:var(--gold);}
 
 /* COCKTAIL BANNER */
 .cocktail-banner{background:linear-gradient(135deg,#0B3A5C 0%,#0D4E78 45%,#1B8A8F 100%);padding:76px 20px;text-align:center;position:relative;overflow:hidden;}
@@ -176,9 +187,6 @@ section{padding:96px 20px;}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.11);box-shadow:0 0 0 3px rgba(245,166,35,.15);}
 .form-group textarea{resize:vertical;min-height:100px;}
 .form-hint{font-size:.78rem;color:rgba(255,255,255,.38);margin-top:-3px;}
-.overtime-note{display:flex;align-items:flex-start;gap:12px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.28);border-radius:12px;padding:14px 18px;color:rgba(255,255,255,.78);font-size:.87rem;line-height:1.65;margin-top:-10px;margin-bottom:22px;}
-.ot-icon{font-size:1.2rem;flex-shrink:0;margin-top:1px;}
-.overtime-note strong{color:var(--gold);}
 .cocktail-request-group{background:rgba(27,138,143,.1);border:1px solid rgba(39,196,196,.25);border-radius:14px;padding:22px 24px;margin-bottom:26px!important;}
 .toggle-label{display:flex;align-items:center;gap:12px;cursor:pointer;}
 .toggle-track{position:relative;width:48px;height:26px;flex-shrink:0;background:rgba(255,255,255,.15);border-radius:50px;border:1.5px solid rgba(255,255,255,.2);transition:background .3s,border-color .3s;}
@@ -237,7 +245,6 @@ footer a{color:var(--gold);text-decoration:none;}
 
   <!-- DRINK DECORATIONS -->
   <div class="hero-drinks" aria-hidden="true">
-    <!-- Martini top left -->
     <svg class="hd hd-martini" viewBox="0 0 120 155" xmlns="http://www.w3.org/2000/svg">
       <path d="M18,18 L60,88 L102,18 Z" fill="rgba(244,98,42,0.2)" stroke="rgba(255,255,255,0.48)" stroke-width="2.2" stroke-linejoin="round"/>
       <line x1="60" y1="88" x2="60" y2="130" stroke="rgba(255,255,255,0.48)" stroke-width="2.2" stroke-linecap="round"/>
@@ -248,7 +255,6 @@ footer a{color:var(--gold);text-decoration:none;}
         <path d="M12,2 C14,2 16,3 17,5 C18,7 18,9 17,11 C19,10 21,10 22,12 C23,14 22,16 20,17 C18,18 16,17 15,16 C15,19 14,22 12,24 C10,26 7,26 5,25 C3,24 2,22 2,19 C2,15 4,10 6,7 C8,4 10,2 12,2 Z" fill="rgba(245,166,35,0.82)" stroke="rgba(244,98,42,0.35)" stroke-width="0.8"/>
       </g>
     </svg>
-    <!-- Hurricane top right -->
     <svg class="hd hd-hurricane" viewBox="0 0 100 175" xmlns="http://www.w3.org/2000/svg">
       <path d="M28,12 Q18,52 23,90 Q26,118 28,148 L72,148 Q74,118 77,90 Q82,52 72,12 Z" fill="rgba(245,120,30,0.18)" stroke="rgba(255,255,255,0.46)" stroke-width="2" stroke-linejoin="round"/>
       <path d="M29,42 Q21,65 24,90 Q27,114 28,143 L72,143 Q73,114 76,90 Q79,65 71,42 Z" fill="rgba(244,98,42,0.25)"/>
@@ -264,7 +270,6 @@ footer a{color:var(--gold);text-decoration:none;}
       </g>
       <ellipse cx="50" cy="150" rx="24" ry="5" fill="none" stroke="rgba(255,255,255,0.34)" stroke-width="1.8"/>
     </svg>
-    <!-- Coconut lower left -->
     <svg class="hd hd-coconut" viewBox="0 0 130 140" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="58" cy="98" rx="40" ry="30" fill="rgba(101,67,33,0.55)" stroke="rgba(80,50,20,0.42)" stroke-width="2"/>
       <path d="M24,95 Q58,82 92,95" fill="none" stroke="rgba(50,28,8,0.3)" stroke-width="1.5"/>
@@ -280,14 +285,12 @@ footer a{color:var(--gold);text-decoration:none;}
       <path d="M32,34 Q38,38 44,34" fill="none" stroke="rgba(255,220,50,0.82)" stroke-width="1"/>
       <path d="M44,34 Q50,38 56,34" fill="none" stroke="rgba(100,200,80,0.82)" stroke-width="1"/>
     </svg>
-    <!-- Shaker lower right -->
     <svg class="hd hd-shaker" viewBox="0 0 68 155" xmlns="http://www.w3.org/2000/svg">
       <path d="M22,38 L25,14 L43,14 L46,38 Z" fill="rgba(200,210,230,0.32)" stroke="rgba(255,255,255,0.42)" stroke-width="1.5" stroke-linejoin="round"/>
       <path d="M17,40 L20,126 Q34,135 48,126 L51,40 Z" fill="rgba(180,195,215,0.28)" stroke="rgba(255,255,255,0.42)" stroke-width="2" stroke-linejoin="round"/>
       <line x1="17" y1="40" x2="51" y2="40" stroke="rgba(255,255,255,0.48)" stroke-width="1.8"/>
       <line x1="24" y1="48" x2="25" y2="118" stroke="rgba(255,255,255,0.24)" stroke-width="3" stroke-linecap="round"/>
     </svg>
-    <!-- Lime mid left -->
     <svg class="hd hd-lime" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
       <circle cx="25" cy="25" r="21" fill="rgba(100,200,70,0.45)" stroke="rgba(70,160,40,0.4)" stroke-width="2"/>
       <circle cx="25" cy="25" r="15" fill="none" stroke="rgba(70,160,40,0.28)" stroke-width="1.5"/>
@@ -296,7 +299,6 @@ footer a{color:var(--gold);text-decoration:none;}
       <line x1="14" y1="14" x2="36" y2="36" stroke="rgba(70,160,40,0.2)" stroke-width="1.2"/>
       <line x1="36" y1="14" x2="14" y2="36" stroke="rgba(70,160,40,0.2)" stroke-width="1.2"/>
     </svg>
-    <!-- Orange lower left -->
     <svg class="hd hd-orange" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
       <circle cx="28" cy="28" r="24" fill="rgba(244,130,30,0.42)" stroke="rgba(220,100,20,0.38)" stroke-width="2"/>
       <circle cx="28" cy="28" r="17" fill="none" stroke="rgba(220,100,20,0.28)" stroke-width="1.5"/>
@@ -305,7 +307,6 @@ footer a{color:var(--gold);text-decoration:none;}
       <line x1="16" y1="16" x2="40" y2="40" stroke="rgba(220,100,20,0.2)" stroke-width="1.2"/>
       <line x1="40" y1="16" x2="16" y2="40" stroke="rgba(220,100,20,0.2)" stroke-width="1.2"/>
     </svg>
-    <!-- Cherries upper right area -->
     <svg class="hd hd-cherry" viewBox="0 0 76 72" xmlns="http://www.w3.org/2000/svg">
       <path d="M38,18 Q42,5 56,8 Q52,22 38,18 Z" fill="rgba(60,140,60,0.62)"/>
       <path d="M38,18 Q34,5 20,8 Q24,22 38,18 Z" fill="rgba(60,140,60,0.62)"/>
@@ -315,66 +316,43 @@ footer a{color:var(--gold);text-decoration:none;}
     </svg>
   </div>
 
-  <!-- REALISTIC PALM TREES -->
+  <!-- PALM TREES -->
   <div class="palm-wrap left">
     <svg width="230" height="520" viewBox="0 0 230 520" xmlns="http://www.w3.org/2000/svg">
-      <!-- Trunk: gently curving, thicker at base -->
-      <path d="M122,518 C119,475 115,430 110,388 C105,346 100,304 97,266 C94,232 93,200 95,172 C97,148 100,126 104,106"
-            stroke="#1C3010" stroke-width="20" stroke-linecap="round" fill="none"/>
-      <path d="M122,518 C119,475 115,430 110,388 C105,346 100,304 97,266 C94,232 93,200 95,172 C97,148 100,126 104,106"
-            stroke="#2C4E18" stroke-width="12" stroke-linecap="round" fill="none"/>
-      <path d="M122,518 C119,475 115,430 110,388 C105,346 100,304 97,266 C94,232 93,200 95,172 C97,148 100,126 104,106"
-            stroke="#3A6020" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5"/>
-      <!-- Trunk rings (bark texture) -->
+      <path d="M122,518 C119,475 115,430 110,388 C105,346 100,304 97,266 C94,232 93,200 95,172 C97,148 100,126 104,106" stroke="#1C3010" stroke-width="20" stroke-linecap="round" fill="none"/>
+      <path d="M122,518 C119,475 115,430 110,388 C105,346 100,304 97,266 C94,232 93,200 95,172 C97,148 100,126 104,106" stroke="#2C4E18" stroke-width="12" stroke-linecap="round" fill="none"/>
+      <path d="M122,518 C119,475 115,430 110,388 C105,346 100,304 97,266 C94,232 93,200 95,172 C97,148 100,126 104,106" stroke="#3A6020" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5"/>
       <path d="M109,380 Q103,383 97,381" fill="none" stroke="#162508" stroke-width="2" opacity="0.6"/>
       <path d="M110,345 Q104,348 98,346" fill="none" stroke="#162508" stroke-width="2" opacity="0.6"/>
       <path d="M110,308 Q104,311 98,309" fill="none" stroke="#162508" stroke-width="2" opacity="0.6"/>
       <path d="M109,270 Q103,273 97,271" fill="none" stroke="#162508" stroke-width="2" opacity="0.6"/>
-      <!-- Crown fronds — long, natural, slightly drooping -->
-      <!-- Far left, drooping low -->
-      <path d="M104,106 C78,102 45,96 12,115 C14,96 14,76 12,115 C38,92 72,90 104,106 Z" fill="#1B4010"/>
+      <path d="M104,106 C78,102 45,96 12,115 C38,92 72,90 104,106 Z" fill="#1B4010"/>
       <path d="M104,106 C78,102 45,96 12,115" fill="none" stroke="#254E14" stroke-width="1.8" opacity="0.7"/>
-      <!-- Left, mid droop -->
       <path d="M104,106 C80,88 56,65 38,42 C52,62 76,86 104,106 Z" fill="#204C12"/>
       <path d="M104,106 C80,88 56,65 38,42" fill="none" stroke="#254E14" stroke-width="1.8" opacity="0.7"/>
-      <!-- Upper left -->
       <path d="M104,106 C90,80 80,52 78,22 C82,48 92,78 104,106 Z" fill="#1A4A0E"/>
-      <!-- Straight up -->
       <path d="M104,106 C101,76 101,48 106,16 C103,44 102,74 104,106 Z" fill="#204C12"/>
-      <!-- Upper right -->
       <path d="M104,106 C118,80 134,56 150,36 C134,56 120,80 104,106 Z" fill="#1A4A0E"/>
-      <!-- Right mid -->
       <path d="M104,106 C122,90 144,76 168,72 C146,74 124,88 104,106 Z" fill="#204C12"/>
-      <!-- Far right drooping -->
       <path d="M104,106 C126,102 152,104 174,118 C151,106 126,102 104,106 Z" fill="#1B4010"/>
       <path d="M104,106 C126,102 152,104 174,118" fill="none" stroke="#254E14" stroke-width="1.8" opacity="0.7"/>
-      <!-- Drooping down-right -->
       <path d="M104,106 C118,114 136,126 148,148 C132,128 116,114 104,106 Z" fill="#163808"/>
-      <!-- Drooping down-left -->
       <path d="M104,106 C88,114 68,128 54,150 C68,130 86,114 104,106 Z" fill="#163808"/>
-      <!-- Coconuts -->
       <circle cx="101" cy="114" r="8" fill="#3D1F05" stroke="#281205" stroke-width="1.2"/>
       <circle cx="112" cy="118" r="7" fill="#4A2808" stroke="#281205" stroke-width="1.2"/>
       <circle cx="95" cy="120" r="6" fill="#3D1F05" stroke="#281205" stroke-width="1.2"/>
     </svg>
   </div>
-
   <div class="palm-wrap right">
     <svg width="230" height="520" viewBox="0 0 230 520" xmlns="http://www.w3.org/2000/svg">
-      <!-- Trunk leans opposite direction -->
-      <path d="M108,518 C111,475 115,430 120,388 C125,346 130,304 133,266 C136,232 137,200 135,172 C133,148 130,126 126,106"
-            stroke="#1C3010" stroke-width="20" stroke-linecap="round" fill="none"/>
-      <path d="M108,518 C111,475 115,430 120,388 C125,346 130,304 133,266 C136,232 137,200 135,172 C133,148 130,126 126,106"
-            stroke="#2C4E18" stroke-width="12" stroke-linecap="round" fill="none"/>
-      <path d="M108,518 C111,475 115,430 120,388 C125,346 130,304 133,266 C136,232 137,200 135,172 C133,148 130,126 126,106"
-            stroke="#3A6020" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5"/>
-      <!-- Trunk rings -->
+      <path d="M108,518 C111,475 115,430 120,388 C125,346 130,304 133,266 C136,232 137,200 135,172 C133,148 130,126 126,106" stroke="#1C3010" stroke-width="20" stroke-linecap="round" fill="none"/>
+      <path d="M108,518 C111,475 115,430 120,388 C125,346 130,304 133,266 C136,232 137,200 135,172 C133,148 130,126 126,106" stroke="#2C4E18" stroke-width="12" stroke-linecap="round" fill="none"/>
+      <path d="M108,518 C111,475 115,430 120,388 C125,346 130,304 133,266 C136,232 137,200 135,172 C133,148 130,126 126,106" stroke="#3A6020" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5"/>
       <path d="M121,380 Q127,383 133,381" fill="none" stroke="#162508" stroke-width="2" opacity="0.6"/>
       <path d="M120,345 Q126,348 132,346" fill="none" stroke="#162508" stroke-width="2" opacity="0.6"/>
       <path d="M120,308 Q126,311 132,309" fill="none" stroke="#162508" stroke-width="2" opacity="0.6"/>
       <path d="M121,270 Q127,273 133,271" fill="none" stroke="#162508" stroke-width="2" opacity="0.6"/>
-      <!-- Crown fronds (mirrored from left palm) -->
-      <path d="M126,106 C152,102 185,96 218,115 C216,96 216,76 218,115 C192,92 158,90 126,106 Z" fill="#1B4010"/>
+      <path d="M126,106 C152,102 185,96 218,115 C192,92 158,90 126,106 Z" fill="#1B4010"/>
       <path d="M126,106 C152,102 185,96 218,115" fill="none" stroke="#254E14" stroke-width="1.8" opacity="0.7"/>
       <path d="M126,106 C150,88 174,65 192,42 C178,62 154,86 126,106 Z" fill="#204C12"/>
       <path d="M126,106 C150,88 174,65 192,42" fill="none" stroke="#254E14" stroke-width="1.8" opacity="0.7"/>
@@ -386,7 +364,6 @@ footer a{color:var(--gold);text-decoration:none;}
       <path d="M126,106 C104,102 78,104 56,118" fill="none" stroke="#254E14" stroke-width="1.8" opacity="0.7"/>
       <path d="M126,106 C112,114 94,126 82,148 C98,128 114,114 126,106 Z" fill="#163808"/>
       <path d="M126,106 C142,114 162,128 176,150 C162,130 144,114 126,106 Z" fill="#163808"/>
-      <!-- Coconuts -->
       <circle cx="129" cy="114" r="8" fill="#3D1F05" stroke="#281205" stroke-width="1.2"/>
       <circle cx="118" cy="118" r="7" fill="#4A2808" stroke="#281205" stroke-width="1.2"/>
       <circle cx="135" cy="120" r="6" fill="#3D1F05" stroke="#281205" stroke-width="1.2"/>
@@ -403,9 +380,9 @@ footer a{color:var(--gold);text-decoration:none;}
     <p class="hero-tagline">Mobile Bartending Services Based in Michigan</p>
     <div class="hero-badges">
       <div class="badge">🏅 TIPS Certified</div>
-      <div class="badge">🛡️ Fully Insured</div>
-      <div class="badge mi-badge">📍 Michigan Based</div>
-      <div class="badge">🍹 Mobile Bar Service</div>
+      <div class="badge">&#128737;&#65039; Fully Insured</div>
+      <div class="badge mi-badge">&#128205; Michigan Based</div>
+      <div class="badge">&#127865; Mobile Bar Service</div>
     </div>
     <a href="#quote" class="hero-btn">Request Your Free Quote</a>
   </div>
@@ -426,12 +403,12 @@ footer a{color:var(--gold);text-decoration:none;}
   <div class="why-inner">
     <p class="section-eyebrow fade-up">Why Choose Us</p>
     <h2 class="section-title fade-up">Every Event Deserves<br>a Professional Touch</h2>
-    <p class="mi-tag fade-up">📍 Proudly Serving Michigan</p>
+    <p class="mi-tag fade-up">&#128205; Proudly Serving Michigan</p>
     <div class="trust-grid">
       <div class="trust-card fade-up"><span class="trust-icon">🏅</span><h3>TIPS Certified</h3><p>Our bartenders are certified through TIPS &#8212; the gold standard in responsible alcohol service and guest safety.</p></div>
-      <div class="trust-card fade-up"><span class="trust-icon">🛡️</span><h3>General &amp; Liquor Liability</h3><p>We carry full general liability and liquor liability insurance, so you can enjoy your event worry-free.</p></div>
-      <div class="trust-card fade-up"><span class="trust-icon">🚐</span><h3>Fully Mobile</h3><p>We come to you &#8212; backyard parties, weddings, corporate events, you name it. No venue required.</p></div>
-      <div class="trust-card fade-up"><span class="trust-icon">🍸</span><h3>Professional Service</h3><p>From setup to last call, we handle everything with polished professionalism so you can relax and enjoy.</p></div>
+      <div class="trust-card fade-up"><span class="trust-icon">&#128737;&#65039;</span><h3>General &amp; Liquor Liability</h3><p>We carry full general liability and liquor liability insurance, so you can enjoy your event worry-free.</p></div>
+      <div class="trust-card fade-up"><span class="trust-icon">&#128656;</span><h3>Fully Mobile</h3><p>We come to you &#8212; backyard parties, weddings, corporate events, you name it. No venue required.</p></div>
+      <div class="trust-card fade-up"><span class="trust-icon">&#127864;</span><h3>Professional Service</h3><p>From setup to last call, we handle everything with polished professionalism so you can relax and enjoy.</p></div>
     </div>
   </div>
 </section>
@@ -448,52 +425,63 @@ footer a{color:var(--gold);text-decoration:none;}
     <h2 class="section-title fade-up">Choose Your Perfect Package</h2>
     <p class="section-sub fade-up" style="margin:0 auto;">Whether you want us to handle everything or just need a skilled professional behind the bar &#8212; we&#39;ve got you covered.</p>
     <div class="packages-grid">
+
       <div class="pkg-card featured fade-up">
         <div class="popular-tag">Most Popular</div>
         <div class="pkg-header">
-          <span class="pkg-tag">✦ Full Service</span><span class="pkg-icon">🌴</span>
+          <span class="pkg-tag">&#10022; Full Service</span><span class="pkg-icon">&#127796;</span>
           <h2>The Everything Package</h2>
           <p>Sit back and let us handle every detail. We bring the full bar experience straight to your event.</p>
         </div>
         <div class="pkg-body">
           <ul class="feature-list">
-            <li><span class="chk">✓</span><span>Professional TIPS-certified bartender(s)</span></li>
-            <li><span class="chk">✓</span><span>Full bar setup &amp; breakdown included</span></li>
-            <li><span class="chk">✓</span><span>Cups, napkins &amp; bar supplies provided</span></li>
-            <li><span class="chk">✓</span><span>Ice, garnishes &amp; mixers included</span></li>
-            <li><span class="chk">✓</span><span>Custom cocktail menu consultation</span></li>
-            <li><span class="chk">✓</span><span>General &amp; liquor liability insurance</span></li>
-            <li><span class="chk">✓</span><span>Non-alcoholic beverage options available</span></li>
-            <li><span class="chk">✓</span><span>Perfect for weddings, parties &amp; corporate events</span></li>
+            <li><span class="chk">&#10003;</span><span>Professional TIPS-certified bartender(s)</span></li>
+            <li><span class="chk">&#10003;</span><span>Full bar setup &amp; breakdown included</span></li>
+            <li><span class="chk">&#10003;</span><span>Cups, napkins &amp; bar supplies provided</span></li>
+            <li><span class="chk">&#10003;</span><span>Ice, garnishes &amp; mixers included</span></li>
+            <li><span class="chk">&#10003;</span><span>Custom cocktail menu consultation</span></li>
+            <li><span class="chk">&#10003;</span><span>General &amp; liquor liability insurance</span></li>
+            <li><span class="chk">&#10003;</span><span>Non-alcoholic beverage options available</span></li>
+            <li><span class="chk">&#10003;</span><span>Perfect for weddings, parties &amp; corporate events</span></li>
           </ul>
+          <div class="dry-hire-note">
+            <span class="dry-hire-icon">&#127866;</span>
+            <div>
+              <strong>Dry Hire &#8212; You Provide the Alcohol</strong>
+              <p>We handle everything except the booze! You purchase the alcohol and we take care of the rest &#8212; setup, supplies, service, and cleanup.</p>
+              <p style="margin-top:6px;color:var(--orange);font-weight:800;font-size:.84rem;">&#127864; Request a recommended liquor &amp; cocktail list when you fill out your quote below!</p>
+            </div>
+          </div>
           <a href="#quote" class="pkg-btn">Get a Quote &#8594;</a>
         </div>
       </div>
+
       <div class="pkg-card standard fade-up">
         <div class="pkg-header">
-          <span class="pkg-tag">⚓ Bartender Only</span><span class="pkg-icon">🍹</span>
+          <span class="pkg-tag">&#9875; Bartender Only</span><span class="pkg-icon">&#127865;</span>
           <h2>The Bartender Package</h2>
           <p>Already have your supplies? We provide the skilled, insured, certified professional to run your bar flawlessly.</p>
         </div>
         <div class="pkg-body">
           <ul class="feature-list">
-            <li><span class="chk">✓</span><span>Professional TIPS-certified bartender(s)</span></li>
-            <li><span class="chk">✓</span><span>Client provides alcohol &amp; supplies</span></li>
-            <li><span class="chk">✓</span><span>Bar setup &amp; service management</span></li>
-            <li><span class="chk">✓</span><span>Expert cocktail &amp; drink execution</span></li>
-            <li><span class="chk">✓</span><span>General &amp; liquor liability insurance</span></li>
-            <li><span class="chk">✓</span><span>Flexible hourly service</span></li>
-            <li><span class="chk">✓</span><span>Great for events where you supply the bar</span></li>
+            <li><span class="chk">&#10003;</span><span>Professional TIPS-certified bartender(s)</span></li>
+            <li><span class="chk">&#10003;</span><span>Client provides alcohol &amp; supplies</span></li>
+            <li><span class="chk">&#10003;</span><span>Bar setup &amp; service management</span></li>
+            <li><span class="chk">&#10003;</span><span>Expert cocktail &amp; drink execution</span></li>
+            <li><span class="chk">&#10003;</span><span>General &amp; liquor liability insurance</span></li>
+            <li><span class="chk">&#10003;</span><span>Flexible hourly service</span></li>
+            <li><span class="chk">&#10003;</span><span>Great for events where you supply the bar</span></li>
           </ul>
           <a href="#quote" class="pkg-btn">Get a Quote &#8594;</a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <section class="cocktail-banner">
-  <h2 class="fade-up">Not Sure What to Serve? 🍸</h2>
+  <h2 class="fade-up">Not Sure What to Serve? &#127864;</h2>
   <p class="fade-up">Don&#39;t stress the bar menu &#8212; we&#39;ve got you covered. From liquor selection to building a custom cocktail menu, we&#39;ll help you curate the perfect drink experience tailored to your event and guests.</p>
   <button class="cocktail-btn fade-up" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Let&#39;s Build Your Menu</button>
 </section>
@@ -523,13 +511,13 @@ footer a{color:var(--gold);text-decoration:none;}
         <div class="form-group"><label>Bar Service Start Time <span>*</span></label><input type="time" name="Bar Start Time" required><span class="form-hint">It&#39;s OK to guess if unsure.</span></div>
         <div class="form-group"><label>Bar Service End Time <span>*</span></label><input type="time" name="Bar End Time" required><span class="form-hint">It&#39;s OK to guess if unsure.</span></div>
       </div>
-      <div class="overtime-note"><span class="ot-icon">⏱️</span><span><strong>On-Site Hour Extensions:</strong> Need us to stay longer on the day of? No problem &#8212; additional hours can be added on-site for an extra charge.</span></div>
+      <div class="overtime-note"><span class="ot-icon">&#9201;&#65039;</span><span><strong>On-Site Hour Extensions:</strong> Need us to stay longer on the day of? No problem &#8212; additional hours can be added on-site for an extra charge.</span></div>
       <div class="form-row">
         <div class="form-group"><label>Estimated Guest Count <span>*</span></label><input type="number" name="Guest Count" placeholder="e.g. 75" min="1" required></div>
         <div class="form-group"><label>Hours Serving Drinks <span>*</span></label><input type="number" name="Hours of Service" placeholder="e.g. 4.5" step="0.5" min="1" required><span class="form-hint">Example: 4.5 = four and a half hours</span></div>
       </div>
       <div class="form-group cocktail-request-group">
-        <label style="font-size:.9rem;letter-spacing:1px;color:var(--teal-light);margin-bottom:10px;display:flex;align-items:center;gap:8px;"><span style="font-size:1.3rem;">🍸</span> COCKTAIL &amp; LIQUOR RECOMMENDATIONS</label>
+        <label style="font-size:.9rem;letter-spacing:1px;color:var(--teal-light);margin-bottom:10px;display:flex;align-items:center;gap:8px;"><span style="font-size:1.3rem;">&#127864;</span> COCKTAIL &amp; LIQUOR RECOMMENDATIONS</label>
         <label class="toggle-label">
           <input type="checkbox" name="Wants Cocktail List" id="wantsCocktailList" value="Yes" onchange="toggleCocktailPrefs(this)">
           <span class="toggle-track"><span class="toggle-thumb"></span></span>
@@ -544,9 +532,9 @@ footer a{color:var(--gold);text-decoration:none;}
         </div>
       </div>
       <div class="form-group"><label>Anything Else We Should Know?</label><textarea name="Additional Notes" placeholder="Special requests, themes, or anything helpful about your event..."></textarea></div>
-      <button type="submit" class="submit-btn">🍹 Send My Quote Request</button>
+      <button type="submit" class="submit-btn">&#127865; Send My Quote Request</button>
       <p class="form-note">By submitting, you agree to be contacted by Better with Booze Bartending.<br>We respect your privacy and never share your information.</p>
-      <div class="success-msg" id="successMsg">🎉 Your quote request has been sent! We&#39;ll be in touch soon with your personalized proposal.</div>
+      <div class="success-msg" id="successMsg">&#127881; Your quote request has been sent! We&#39;ll be in touch soon with your personalized proposal.</div>
     </form>
   </div>
 </section>
