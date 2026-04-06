@@ -559,6 +559,14 @@ footer a{color:var(--gold);text-decoration:none;}
         <div class="form-group"><label>Last Name</label><input type="text" name="Last Name" placeholder="Your last name"></div>
       </div>
       <div class="form-group"><label>Email Address <span>*</span></label><input type="email" name="Email" placeholder="your@email.com" required><span class="form-hint">We&#39;ll send your personalized proposal here.</span></div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" name="Phone Number" placeholder="e.g. (313) 555-0100"><span class="form-hint">Optional — helpful if you prefer a call or text.</span></div>
+      <div class="form-group">
+        <label style="margin-bottom:10px;display:block;">Best Way to Contact You?</label>
+        <div style="display:flex;gap:24px;flex-wrap:wrap;">
+          <label style="display:flex;align-items:center;gap:8px;font-size:.95rem;font-weight:600;cursor:pointer;color:var(--cream);"><input type="radio" name="Best Contact Method" value="Email" style="accent-color:var(--teal-light);width:16px;height:16px;" checked> &#128140; Email</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:.95rem;font-weight:600;cursor:pointer;color:var(--cream);"><input type="radio" name="Best Contact Method" value="Phone / Text" style="accent-color:var(--teal-light);width:16px;height:16px;"> &#128222; Phone / Text</label>
+        </div>
+      </div>
       <div class="form-group"><label>Event Address <span>*</span></label><input type="text" name="Event Address" placeholder="e.g. 123 Main St, Detroit, MI 48201" required><span class="form-hint">Include full address &#8212; home, venue, park, banquet hall, etc. Michigan-based service.</span></div>
       <div class="form-row">
         <div class="form-group"><label>Package <span>*</span></label><select name="Package" required><option value="" disabled selected>Select a package...</option><option>The Everything Package</option><option>The Bartender Package</option><option>Not Sure Yet</option></select></div>
@@ -566,14 +574,11 @@ footer a{color:var(--gold);text-decoration:none;}
       </div>
       <div class="form-group"><label>Event Date <span>*</span></label><input type="date" name="Event Date" required><span class="form-hint">Or any date in the month you&#39;re considering.</span></div>
       <div class="form-row">
-        <div class="form-group"><label>Bar Service Start Time <span>*</span></label><input type="time" name="Bar Start Time" required><span class="form-hint">It&#39;s OK to guess if unsure.</span></div>
-        <div class="form-group"><label>Bar Service End Time <span>*</span></label><input type="time" name="Bar End Time" required><span class="form-hint">It&#39;s OK to guess if unsure.</span></div>
+        <div class="form-group"><label>Bar Service Start Time <span>*</span></label><input type="time" name="Bar Start Time" id="barStartTime" required onchange="validateBarHours()"><span class="form-hint">It&#39;s OK to guess if unsure.</span></div>
+        <div class="form-group" id="barEndGroup"><label>Bar Service End Time <span>*</span></label><input type="time" name="Bar End Time" id="barEndTime" required onchange="validateBarHours()"><span class="form-hint" id="barEndHint">It&#39;s OK to guess if unsure.</span></div>
       </div>
       <div class="overtime-note"><span class="ot-icon">&#9201;&#65039;</span><span><strong>On-Site Hour Extensions:</strong> Need us to stay longer on the day of? No problem &#8212; additional hours can be added on-site for an extra charge.</span></div>
-      <div class="form-row">
-        <div class="form-group"><label>Estimated Guest Count <span>*</span></label><input type="number" name="Guest Count" placeholder="e.g. 75" min="1" required></div>
-        <div class="form-group"><label>Hours Serving Drinks <span>*</span></label><input type="number" name="Hours of Service" placeholder="e.g. 4.5" step="0.5" min="1" required><span class="form-hint">Example: 4.5 = four and a half hours</span></div>
-      </div>
+      <div class="form-group"><label>Estimated Guest Count <span>*</span></label><input type="number" name="Guest Count" placeholder="e.g. 75" min="1" required></div>
       <div class="form-group cocktail-request-group">
         <label style="font-size:.9rem;letter-spacing:1px;color:var(--teal-light);margin-bottom:10px;display:flex;align-items:center;gap:8px;"><span style="font-size:1.3rem;">&#127864;</span> COCKTAIL &amp; LIQUOR RECOMMENDATIONS</label>
         <label class="toggle-label">
@@ -600,7 +605,7 @@ footer a{color:var(--gold);text-decoration:none;}
 <!-- CONTACT SECTION -->
 <section style="background:var(--navy);padding:48px 20px;text-align:center;">
   <p style="font-family:'Nunito',sans-serif;font-size:1.15rem;font-weight:700;color:var(--cream);letter-spacing:1px;margin-bottom:12px;">NEED TO CONTACT US?</p>
-  <a href="mailto:betterwithboozellc@gmail.com" style="font-family:'Nunito',sans-serif;font-size:1.1rem;font-weight:800;color:var(--gold);text-decoration:none;border-bottom:2px solid var(--orange);padding-bottom:3px;transition:color .2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--gold)'">betterwithboozellc@gmail.com</a>
+  <a href="/cdn-cgi/l/email-protection#16747362627364617f627e7479796c737a7a7556717b777f7a3875797b" style="font-family:'Nunito',sans-serif;font-size:1.1rem;font-weight:800;color:var(--gold);text-decoration:none;border-bottom:2px solid var(--orange);padding-bottom:3px;transition:color .2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--gold)'"><span class="__cf_email__" data-cfemail="80e2e5f4f4e5f2f7e9f4e8e2efeffae5ecece3c0e7ede1e9ecaee3efed">[email&#160;protected]</span></a>
 </section>
 
 <footer>
@@ -610,7 +615,7 @@ footer a{color:var(--gold);text-decoration:none;}
   <p style="margin-top:18px;font-size:.75rem;">&#169; 2026 Better with Booze LLC. All rights reserved. Proudly serving Michigan.</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const starsEl = document.getElementById('stars');
 for (let i = 0; i < 65; i++) {
   const s = document.createElement('div'); s.className = 'star';
@@ -625,6 +630,32 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 function toggleCocktailPrefs(cb) {
   document.getElementById('cocktailPrefs').style.display = cb.checked ? 'block' : 'none';
 }
+function validateBarHours() {
+  const start = document.getElementById('barStartTime').value;
+  const end = document.getElementById('barEndTime').value;
+  const endInput = document.getElementById('barEndTime');
+  const endGroup = document.getElementById('barEndGroup');
+  const hint = document.getElementById('barEndHint');
+  if (!start || !end) return;
+  const [sh, sm] = start.split(':').map(Number);
+  const [eh, em] = end.split(':').map(Number);
+  const diff = (eh * 60 + em) - (sh * 60 + sm);
+  if (diff < 240) {
+    endInput.style.borderColor = '#e03c3c';
+    endInput.style.boxShadow = '0 0 0 3px rgba(224,60,60,0.25)';
+    hint.textContent = '⚠️ Minimum service is 4 hours — please adjust your end time.';
+    hint.style.color = '#e03c3c';
+    hint.style.fontWeight = '700';
+    endInput.setCustomValidity('Minimum 4-hour service required.');
+  } else {
+    endInput.style.borderColor = '';
+    endInput.style.boxShadow = '';
+    hint.textContent = "It's OK to guess if unsure.";
+    hint.style.color = '';
+    hint.style.fontWeight = '';
+    endInput.setCustomValidity('');
+  }
+}
 document.getElementById('quoteForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = this.querySelector('.submit-btn');
@@ -635,14 +666,29 @@ document.getElementById('quoteForm').addEventListener('submit', async function(e
       method: 'POST', headers: { 'Accept': 'application/json' }, body: formData
     });
     const result = await res.json();
-    if (result.success === 'true' || result.success === true) { showOk(); return; }
-  } catch(err) {}
-  this.submit();
+    if (result.success === 'true' || result.success === true) {
+      this.reset();
+      document.getElementById('cocktailPrefs').style.display = 'none';
+      document.getElementById('thankYouModal').style.display = 'flex';
+    } else {
+      btn.textContent = '&#9888;&#65039; Something went wrong — please try again';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    btn.textContent = '&#9888;&#65039; Error — please email us directly';
+    btn.disabled = false;
+  }
 });
-function showOk() {
-  document.getElementById('successMsg').style.display = 'block';
-  document.getElementById('quoteForm').style.display = 'none';
-}
 </script>
+
+<div id="thankYouModal" style="display:none;position:fixed;inset:0;background:rgba(6,21,37,0.88);z-index:9999;align-items:center;justify-content:center;">
+  <div style="background:linear-gradient(135deg,var(--navy-mid),var(--navy));border:2px solid var(--teal-light);border-radius:18px;padding:48px 40px;max-width:460px;width:90%;text-align:center;box-shadow:0 8px 48px rgba(0,0,0,0.6);">
+    <div style="font-size:3rem;margin-bottom:16px;">&#127881;</div>
+    <h2 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.7rem;margin-bottom:14px;">Thank you for your submission!</h2>
+    <p style="font-family:'Nunito',sans-serif;color:var(--cream);font-size:1.05rem;line-height:1.6;">We will reach out shortly — keep an eye on your inbox or your phone!</p>
+    <button onclick="document.getElementById('thankYouModal').style.display='none'" style="margin-top:28px;background:linear-gradient(135deg,var(--teal),var(--teal-light));color:#fff;border:none;border-radius:30px;padding:12px 36px;font-size:1rem;font-weight:800;cursor:pointer;letter-spacing:1px;">Close</button>
+  </div>
+</div>
+
 </body>
 </html>
