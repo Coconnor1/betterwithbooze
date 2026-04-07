@@ -11,7 +11,7 @@
      ═══════════════════════════════════════════════════ -->
 
 <!-- Content Security Policy -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; form-action 'self' https://formsubmit.co; connect-src 'self' https://formsubmit.co; frame-src 'none'; object-src 'none'; base-uri 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; form-action 'self' https://formsubmit.co; connect-src 'self' https://formsubmit.co https://api.web3forms.com; frame-src 'none'; object-src 'none'; base-uri 'self';">
 
 <!-- Referrer Policy -->
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -753,14 +753,13 @@ document.getElementById('quoteForm').addEventListener('submit', async function(e
   const btn = this.querySelector('.submit-btn');
   btn.textContent = 'Sending...'; btn.disabled = true;
   const formData = new FormData(this);
+  formData.append('access_key', 'ee1a52ad-a430-46bb-970f-78b5b34092a9');
   try {
-    var u2 = 'betterwithbooze' + 'llc';
-    var d2 = 'gmail' + '.com';
-    const res = await fetch('https://formsubmit.co/ajax/' + u2 + '@' + d2, {
+    const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST', headers: { 'Accept': 'application/json' }, body: formData
     });
     const result = await res.json();
-    if (result.success === 'true' || result.success === true) {
+    if (result.success === true) {
       this.reset();
       // Clear any leftover validation states after reset
       document.querySelectorAll('.field-error').forEach(el => el.classList.remove('field-error'));
