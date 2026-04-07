@@ -243,6 +243,9 @@ section{padding:96px 20px;}
 .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.32);}
 .form-group select option{background:#0D2B45;color:white;}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.11);box-shadow:0 0 0 3px rgba(245,166,35,.15);}
+.field-error{border-color:#e03c3c !important;box-shadow:0 0 0 3px rgba(224,60,60,0.25) !important;background:rgba(224,60,60,0.07) !important;}
+.field-error-msg{color:#e03c3c;font-size:.78rem;font-weight:700;margin-top:4px;display:none;}
+.field-error-msg.show{display:block;}
 .form-group textarea{resize:vertical;min-height:100px;}
 .form-hint{font-size:.78rem;color:rgba(255,255,255,.38);margin-top:-3px;}
 .cocktail-request-group{background:rgba(27,138,143,.1);border:1px solid rgba(39,196,196,.25);border-radius:14px;padding:22px 24px;margin-bottom:26px!important;}
@@ -555,10 +558,10 @@ footer a{color:var(--gold);text-decoration:none;}
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_autoresponse" value="Thanks for reaching out to Better with Booze Bartending! We received your quote request and will be in touch within 24 hours. 🍹">
       <div class="form-row">
-        <div class="form-group"><label>First Name <span>*</span></label><input type="text" name="First Name" placeholder="Your first name" required></div>
+        <div class="form-group"><label>First Name <span>*</span></label><input type="text" name="First Name" id="fieldFirstName" placeholder="Your first name" required><span class="field-error-msg" id="errFirstName">Please enter your first name.</span></div>
         <div class="form-group"><label>Last Name</label><input type="text" name="Last Name" placeholder="Your last name"></div>
       </div>
-      <div class="form-group"><label>Email Address <span>*</span></label><input type="email" name="Email" placeholder="your@email.com" required><span class="form-hint">We&#39;ll send your personalized proposal here.</span></div>
+      <div class="form-group"><label>Email Address <span>*</span></label><input type="email" name="Email" id="fieldEmail" placeholder="your@email.com" required><span class="form-hint">We&#39;ll send your personalized proposal here.</span><span class="field-error-msg" id="errEmail">Please enter a valid email address.</span></div>
       <div class="form-group"><label>Phone Number</label><input type="tel" name="Phone Number" placeholder="e.g. (313) 555-0100"><span class="form-hint">Optional — helpful if you prefer a call or text.</span></div>
       <div class="form-group">
         <label style="margin-bottom:10px;display:block;">Best Way to Contact You?</label>
@@ -567,18 +570,18 @@ footer a{color:var(--gold);text-decoration:none;}
           <label style="display:flex;align-items:center;gap:8px;font-size:.95rem;font-weight:600;cursor:pointer;color:var(--cream);"><input type="radio" name="Best Contact Method" value="Phone / Text" style="accent-color:var(--teal-light);width:16px;height:16px;"> &#128222; Phone / Text</label>
         </div>
       </div>
-      <div class="form-group"><label>Event Address <span>*</span></label><input type="text" name="Event Address" placeholder="e.g. 123 Main St, Detroit, MI 48201" required><span class="form-hint">Include full address &#8212; home, venue, park, banquet hall, etc. Michigan-based service.</span></div>
+      <div class="form-group"><label>Event Address <span>*</span></label><input type="text" name="Event Address" id="fieldEventAddress" placeholder="e.g. 123 Main St, Detroit, MI 48201" required><span class="form-hint">Include full address &#8212; home, venue, park, banquet hall, etc. Michigan-based service.</span><span class="field-error-msg" id="errEventAddress">Please enter your event address.</span></div>
       <div class="form-row">
-        <div class="form-group"><label>Package <span>*</span></label><select name="Package" required><option value="" disabled selected>Select a package...</option><option>The Everything Package</option><option>The Bartender Package</option><option>Not Sure Yet</option></select></div>
-        <div class="form-group"><label>Event Type <span>*</span></label><select name="Event Type" required><option value="" disabled selected>Select event type...</option><option>Wedding</option><option>Birthday Party</option><option>Corporate Event</option><option>Graduation Party</option><option>Holiday Party</option><option>Retirement Party</option><option>Bachelorette / Bachelor</option><option>Other</option></select></div>
+        <div class="form-group"><label>Package <span>*</span></label><select name="Package" id="fieldPackage" required><option value="" disabled selected>Select a package...</option><option>The Everything Package</option><option>The Bartender Package</option><option>Not Sure Yet</option></select><span class="field-error-msg" id="errPackage">Please select a package.</span></div>
+        <div class="form-group"><label>Event Type <span>*</span></label><select name="Event Type" id="fieldEventType" required><option value="" disabled selected>Select event type...</option><option>Wedding</option><option>Birthday Party</option><option>Corporate Event</option><option>Graduation Party</option><option>Holiday Party</option><option>Retirement Party</option><option>Bachelorette / Bachelor</option><option>Other</option></select><span class="field-error-msg" id="errEventType">Please select an event type.</span></div>
       </div>
-      <div class="form-group"><label>Event Date <span>*</span></label><input type="date" name="Event Date" required><span class="form-hint">Or any date in the month you&#39;re considering.</span></div>
+      <div class="form-group"><label>Event Date <span>*</span></label><input type="date" name="Event Date" id="fieldEventDate" required><span class="form-hint">Or any date in the month you&#39;re considering.</span><span class="field-error-msg" id="errEventDate">Please select an event date.</span></div>
       <div class="form-row">
-        <div class="form-group"><label>Bar Service Start Time <span>*</span></label><input type="time" name="Bar Start Time" id="barStartTime" required onchange="validateBarHours()"><span class="form-hint">It&#39;s OK to guess if unsure.</span></div>
-        <div class="form-group" id="barEndGroup"><label>Bar Service End Time <span>*</span></label><input type="time" name="Bar End Time" id="barEndTime" required onchange="validateBarHours()"><span class="form-hint" id="barEndHint">It&#39;s OK to guess if unsure.</span></div>
+        <div class="form-group"><label>Bar Service Start Time <span>*</span></label><input type="time" name="Bar Start Time" id="barStartTime" required onchange="validateBarHours()"><span class="form-hint">It&#39;s OK to guess if unsure.</span><span class="field-error-msg" id="errStartTime">Please enter a start time.</span></div>
+        <div class="form-group" id="barEndGroup"><label>Bar Service End Time <span>*</span></label><input type="time" name="Bar End Time" id="barEndTime" required onchange="validateBarHours()"><span class="form-hint" id="barEndHint">It&#39;s OK to guess if unsure.</span><span class="field-error-msg" id="errEndTime">Please enter an end time.</span></div>
       </div>
       <div class="overtime-note"><span class="ot-icon">&#9201;&#65039;</span><span><strong>On-Site Hour Extensions:</strong> Need us to stay longer on the day of? No problem &#8212; additional hours can be added on-site for an extra charge.</span></div>
-      <div class="form-group"><label>Estimated Guest Count <span>*</span></label><input type="number" name="Guest Count" placeholder="e.g. 75" min="1" required></div>
+      <div class="form-group"><label>Estimated Guest Count <span>*</span></label><input type="number" name="Guest Count" id="fieldGuestCount" placeholder="e.g. 75" min="1" required><span class="field-error-msg" id="errGuestCount">Please enter an estimated guest count.</span></div>
       <div class="form-group cocktail-request-group">
         <label style="font-size:.9rem;letter-spacing:1px;color:var(--teal-light);margin-bottom:10px;display:flex;align-items:center;gap:8px;"><span style="font-size:1.3rem;">&#127864;</span> COCKTAIL &amp; LIQUOR RECOMMENDATIONS</label>
         <label class="toggle-label">
@@ -603,19 +606,55 @@ footer a{color:var(--gold);text-decoration:none;}
 </section>
 
 <!-- CONTACT SECTION -->
-<section style="background:var(--navy);padding:48px 20px;text-align:center;">
-  <p style="font-family:'Nunito',sans-serif;font-size:1.15rem;font-weight:700;color:var(--cream);letter-spacing:1px;margin-bottom:12px;">NEED TO CONTACT US?</p>
-  <a href="/cdn-cgi/l/email-protection#16747362627364617f627e7479796c737a7a7556717b777f7a3875797b" style="font-family:'Nunito',sans-serif;font-size:1.1rem;font-weight:800;color:var(--gold);text-decoration:none;border-bottom:2px solid var(--orange);padding-bottom:3px;transition:color .2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--gold)'"><span class="__cf_email__" data-cfemail="80e2e5f4f4e5f2f7e9f4e8e2efeffae5ecece3c0e7ede1e9ecaee3efed">[email&#160;protected]</span></a>
+<section style="background:var(--navy);padding:56px 20px;text-align:center;">
+  <p style="font-family:'Nunito',sans-serif;font-size:1.15rem;font-weight:700;color:var(--cream);letter-spacing:2px;margin-bottom:32px;">GET IN TOUCH</p>
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:28px;align-items:center;">
+
+    <!-- Email -->
+    <a id="contactEmailLink" href="#" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:50px;padding:14px 26px;text-decoration:none;transition:background .2s,transform .2s;" onmouseover="this.style.background='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.transform='none'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <span id="contactEmailText" style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;color:var(--gold);"></span>
+    </a>
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/betterwithboozebar" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:50px;padding:14px 26px;text-decoration:none;transition:background .2s,transform .2s;" onmouseover="this.style.background='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.transform='none'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.883v2.258h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+      <span style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;color:var(--cream);">Better With Booze Bartending</span>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/BetterWithBoozeBar" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:50px;padding:14px 26px;text-decoration:none;transition:background .2s,transform .2s;" onmouseover="this.style.background='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.transform='none'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><defs><radialGradient id="ig" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="10%" stop-color="#fdf497"/><stop offset="50%" stop-color="#fd5949"/><stop offset="68%" stop-color="#d6249f"/><stop offset="100%" stop-color="#285AEB"/></radialGradient></defs><path fill="url(#ig)" d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.24 2.242 1.301 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.326 2.633-1.301 3.608-.975.975-2.242 1.24-3.608 1.301-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.326-3.608-1.301-.975-.975-1.24-2.242-1.301-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.326-2.633 1.301-3.608.975-.975 2.242-1.24 3.608-1.301C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.333.014 7.053.072 5.197.157 3.355.673 2.014 2.014.673 3.355.157 5.197.072 7.053.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.085 1.856.601 3.698 1.942 5.038 1.341 1.341 3.183 1.857 5.038 1.942C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 1.856-.085 3.698-.601 5.038-1.942 1.341-1.341 1.857-3.183 1.942-5.038.058-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.085-1.856-.601-3.698-1.942-5.039C21.646.673 19.804.157 17.948.072 16.668.014 16.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      <span style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;color:var(--cream);">@BetterWithBoozeBar</span>
+    </a>
+
+  </div>
 </section>
 
 <footer>
   <div class="footer-logo">Better with Booze</div>
   <p>Mobile Bartending &middot; TIPS Certified &middot; Fully Insured</p>
-  <p style="margin-top:8px;"><a href="/cdn-cgi/l/email-protection#2a484f5e5e4f585d435e42484545504f4646496a4d474b434604494547"><span class="__cf_email__" data-cfemail="2f4d4a5b5b4a5d58465b474d4040554a43434c6f48424e4643014c4042">[email&#160;protected]</span></a></p>
+  <p style="margin-top:8px;"><a id="footerEmailLink" href="#" style="color:var(--gold);"><span id="footerEmailText"></span></a></p>
   <p style="margin-top:18px;font-size:.75rem;">&#169; 2026 Better with Booze LLC. All rights reserved. Proudly serving Michigan.</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+// Build email via JS so Cloudflare's scanner cannot obfuscate it
+(function() {
+  var u = 'betterwithbooze' + 'llc';
+  var d = 'gmail' + '.com';
+  var e = u + '@' + d;
+  var ml = 'mailto:' + e;
+  var el = document.getElementById('contactEmailLink');
+  var et = document.getElementById('contactEmailText');
+  var fl = document.getElementById('footerEmailLink');
+  var ft = document.getElementById('footerEmailText');
+  if (el) el.href = ml;
+  if (et) et.textContent = e;
+  if (fl) fl.href = ml;
+  if (ft) ft.textContent = e;
+})();
+
 const starsEl = document.getElementById('stars');
 for (let i = 0; i < 65; i++) {
   const s = document.createElement('div'); s.className = 'star';
@@ -627,55 +666,114 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
 function toggleCocktailPrefs(cb) {
   document.getElementById('cocktailPrefs').style.display = cb.checked ? 'block' : 'none';
 }
+
 function validateBarHours() {
   const start = document.getElementById('barStartTime').value;
   const end = document.getElementById('barEndTime').value;
   const endInput = document.getElementById('barEndTime');
-  const endGroup = document.getElementById('barEndGroup');
   const hint = document.getElementById('barEndHint');
+  const errMsg = document.getElementById('errEndTime');
   if (!start || !end) return;
   const [sh, sm] = start.split(':').map(Number);
   const [eh, em] = end.split(':').map(Number);
   const diff = (eh * 60 + em) - (sh * 60 + sm);
   if (diff < 240) {
-    endInput.style.borderColor = '#e03c3c';
-    endInput.style.boxShadow = '0 0 0 3px rgba(224,60,60,0.25)';
+    endInput.classList.add('field-error');
     hint.textContent = '⚠️ Minimum service is 4 hours — please adjust your end time.';
     hint.style.color = '#e03c3c';
     hint.style.fontWeight = '700';
+    if (errMsg) { errMsg.textContent = '⚠️ Minimum service is 4 hours.'; errMsg.classList.add('show'); }
     endInput.setCustomValidity('Minimum 4-hour service required.');
   } else {
-    endInput.style.borderColor = '';
-    endInput.style.boxShadow = '';
+    endInput.classList.remove('field-error');
     hint.textContent = "It's OK to guess if unsure.";
     hint.style.color = '';
     hint.style.fontWeight = '';
+    if (errMsg) errMsg.classList.remove('show');
     endInput.setCustomValidity('');
   }
 }
+
 document.getElementById('quoteForm').addEventListener('submit', async function(e) {
   e.preventDefault();
+
+  const checks = [
+    { id: 'fieldFirstName',    err: 'errFirstName' },
+    { id: 'fieldEmail',        err: 'errEmail' },
+    { id: 'fieldEventAddress', err: 'errEventAddress' },
+    { id: 'fieldPackage',      err: 'errPackage' },
+    { id: 'fieldEventType',    err: 'errEventType' },
+    { id: 'fieldEventDate',    err: 'errEventDate' },
+    { id: 'barStartTime',      err: 'errStartTime' },
+    { id: 'barEndTime',        err: 'errEndTime' },
+    { id: 'fieldGuestCount',   err: 'errGuestCount' },
+  ];
+
+  let valid = true;
+  checks.forEach(function(c) {
+    const el = document.getElementById(c.id);
+    const msg = document.getElementById(c.err);
+    if (!el || !msg) return;
+    const empty = !el.value || el.value.trim() === '' || (el.tagName === 'SELECT' && el.value === '');
+    if (empty) {
+      el.classList.add('field-error');
+      msg.classList.add('show');
+      valid = false;
+    } else {
+      el.classList.remove('field-error');
+      msg.classList.remove('show');
+    }
+    // Clear error as soon as user interacts — works for both inputs and selects
+    function clearError() {
+      if (el.value && el.value.trim() !== '') {
+        el.classList.remove('field-error');
+        msg.classList.remove('show');
+      }
+    }
+    el.addEventListener('input', clearError, { once: true });
+    el.addEventListener('change', clearError, { once: true });
+  });
+
+  // Check 4-hour rule if both times are filled
+  if (document.getElementById('barStartTime').value && document.getElementById('barEndTime').value) {
+    validateBarHours();
+    if (document.getElementById('barEndTime').validationMessage) { valid = false; }
+  }
+
+  if (!valid) {
+    const first = document.querySelector('.field-error');
+    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
   const btn = this.querySelector('.submit-btn');
   btn.textContent = 'Sending...'; btn.disabled = true;
   const formData = new FormData(this);
   try {
-    const res = await fetch('https://formsubmit.co/ajax/betterwithboozellc@gmail.com', {
+    var u2 = 'betterwithbooze' + 'llc';
+    var d2 = 'gmail' + '.com';
+    const res = await fetch('https://formsubmit.co/ajax/' + u2 + '@' + d2, {
       method: 'POST', headers: { 'Accept': 'application/json' }, body: formData
     });
     const result = await res.json();
     if (result.success === 'true' || result.success === true) {
       this.reset();
+      // Clear any leftover validation states after reset
+      document.querySelectorAll('.field-error').forEach(el => el.classList.remove('field-error'));
+      document.querySelectorAll('.field-error-msg.show').forEach(el => el.classList.remove('show'));
       document.getElementById('cocktailPrefs').style.display = 'none';
       document.getElementById('thankYouModal').style.display = 'flex';
+      btn.textContent = '🍹 Send My Quote Request'; btn.disabled = false;
     } else {
-      btn.textContent = '&#9888;&#65039; Something went wrong — please try again';
+      btn.textContent = '⚠️ Something went wrong — please try again';
       btn.disabled = false;
     }
   } catch(err) {
-    btn.textContent = '&#9888;&#65039; Error — please email us directly';
+    btn.textContent = '⚠️ Error — please email us directly';
     btn.disabled = false;
   }
 });
