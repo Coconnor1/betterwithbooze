@@ -268,9 +268,37 @@ footer{background:#040D18;padding:44px 20px;text-align:center;border-top:1px sol
 footer p{color:rgba(255,255,255,.32);font-size:.83rem;line-height:1.9;}
 footer a{color:var(--gold);text-decoration:none;}
 
+/* GALLERY SECTION */
+.gallery-section{background:linear-gradient(180deg,var(--cream) 0%,#FFF0DC 100%);position:relative;}
+.gallery-section::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--gold),var(--orange),var(--teal));}
+.gallery-inner{max-width:1100px;margin:0 auto;text-align:center;}
+.gallery-sliders{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px;}
+.gallery-carousel-wrap{display:flex;flex-direction:column;gap:14px;}
+.gallery-carousel-label{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--navy);font-size:.88rem;letter-spacing:1.5px;text-transform:uppercase;}
+.gallery-carousel{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3;background:var(--navy);box-shadow:0 8px 32px rgba(13,43,69,.18);}
+.carousel-track{display:flex;height:100%;transition:transform .42s cubic-bezier(.4,0,.2,1);will-change:transform;}
+.carousel-slide{min-width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;flex-shrink:0;}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.14);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.22);color:white;width:38px;height:38px;border-radius:50%;font-size:1.3rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:2;padding:0;}
+.carousel-btn:hover{background:rgba(255,255,255,.28);}
+.carousel-btn.prev{left:10px;}
+.carousel-btn.next{right:10px;}
+.carousel-dots{display:flex;gap:7px;justify-content:center;}
+.c-dot{width:8px;height:8px;border-radius:50%;background:rgba(13,43,69,.2);cursor:pointer;transition:background .3s,transform .3s;}
+.c-dot.active{background:var(--orange);transform:scale(1.25);}
+.gallery-ph-icon{width:46px;height:46px;opacity:.28;}
+.gallery-ph-label{color:rgba(255,255,255,.28);font-size:.7rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;}
+.gallery-video-play{width:54px;height:54px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:.4;}
+.slide-g1{background:linear-gradient(135deg,#0D2B45,#1A4A6E);}
+.slide-g2{background:linear-gradient(135deg,#1B3A5C,#1B8A8F);}
+.slide-g3{background:linear-gradient(135deg,#B84E18,#F5A623);}
+.slide-g4{background:linear-gradient(135deg,#0A1A30,#27C4C4);}
+.slide-g5{background:linear-gradient(135deg,#1A3A5C,#B84E18);}
+.slide-g6{background:linear-gradient(135deg,#1B5A7A,#D86820);}
+
 /* RESPONSIVE */
 @media(max-width:768px){
   nav{padding:14px 18px;}.nav-links{display:none;}
+  .gallery-sliders{grid-template-columns:1fr;gap:32px;}
   .palm-wrap{display:none;}
   .packages-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
@@ -281,6 +309,7 @@ footer a{color:var(--gold);text-decoration:none;}
 @media(max-width:480px){
   .trust-grid{grid-template-columns:1fr;}section{padding:68px 16px;}
   .hero-badges{gap:8px;}.badge{padding:7px 13px;font-size:.77rem;}
+  .gallery-sliders{gap:24px;}
 }
 </style>
 </head>
@@ -290,6 +319,7 @@ footer a{color:var(--gold);text-decoration:none;}
   <a href="#" class="nav-logo">Better with Booze</a>
   <ul class="nav-links">
     <li><a href="#packages">Packages</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#why-us">About</a></li>
     <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
   </ul>
@@ -451,6 +481,86 @@ footer a{color:var(--gold);text-decoration:none;}
   <div class="scroll-hint">
     <span>Scroll</span>
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="rgba(255,255,255,0.55)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-inner">
+    <p class="section-eyebrow fade-up">Event Gallery</p>
+    <h2 class="section-title fade-up">See the Experience</h2>
+    <p class="section-sub fade-up" style="margin:0 auto;">A look behind the bar at the events we love. Photos and videos from real celebrations we've had the pleasure of serving.</p>
+
+    <div class="gallery-sliders">
+
+      <!-- PHOTO CAROUSEL -->
+      <div class="gallery-carousel-wrap fade-up">
+        <div class="gallery-carousel-label">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          Photos
+        </div>
+        <div class="gallery-carousel">
+          <div class="carousel-track" id="photoTrack">
+            <div class="carousel-slide slide-g1">
+              <svg class="gallery-ph-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="gallery-ph-label">Photo coming soon</span>
+            </div>
+            <div class="carousel-slide slide-g2">
+              <svg class="gallery-ph-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="gallery-ph-label">Photo coming soon</span>
+            </div>
+            <div class="carousel-slide slide-g3">
+              <svg class="gallery-ph-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="gallery-ph-label">Photo coming soon</span>
+            </div>
+            <div class="carousel-slide slide-g4">
+              <svg class="gallery-ph-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="gallery-ph-label">Photo coming soon</span>
+            </div>
+          </div>
+          <button class="carousel-btn prev" onclick="moveCarousel('photo',-1)" aria-label="Previous photo">&#8249;</button>
+          <button class="carousel-btn next" onclick="moveCarousel('photo', 1)" aria-label="Next photo">&#8250;</button>
+        </div>
+        <div class="carousel-dots" id="photoDots">
+          <span class="c-dot active" onclick="goToSlide('photo',0)"></span>
+          <span class="c-dot" onclick="goToSlide('photo',1)"></span>
+          <span class="c-dot" onclick="goToSlide('photo',2)"></span>
+          <span class="c-dot" onclick="goToSlide('photo',3)"></span>
+        </div>
+      </div>
+
+      <!-- VIDEO CAROUSEL -->
+      <div class="gallery-carousel-wrap fade-up">
+        <div class="gallery-carousel-label">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Videos
+        </div>
+        <div class="gallery-carousel">
+          <div class="carousel-track" id="videoTrack">
+            <div class="carousel-slide slide-g5">
+              <div class="gallery-video-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+              <span class="gallery-ph-label">Video coming soon</span>
+            </div>
+            <div class="carousel-slide slide-g6">
+              <div class="gallery-video-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+              <span class="gallery-ph-label">Video coming soon</span>
+            </div>
+            <div class="carousel-slide slide-g1">
+              <div class="gallery-video-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+              <span class="gallery-ph-label">Video coming soon</span>
+            </div>
+          </div>
+          <button class="carousel-btn prev" onclick="moveCarousel('video',-1)" aria-label="Previous video">&#8249;</button>
+          <button class="carousel-btn next" onclick="moveCarousel('video', 1)" aria-label="Next video">&#8250;</button>
+        </div>
+        <div class="carousel-dots" id="videoDots">
+          <span class="c-dot active" onclick="goToSlide('video',0)"></span>
+          <span class="c-dot" onclick="goToSlide('video',1)"></span>
+          <span class="c-dot" onclick="goToSlide('video',2)"></span>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -786,6 +896,45 @@ document.getElementById('quoteForm').addEventListener('submit', async function(e
     <button onclick="document.getElementById('thankYouModal').style.display='none'" style="margin-top:28px;background:linear-gradient(135deg,var(--teal),var(--teal-light));color:#fff;border:none;border-radius:30px;padding:12px 36px;font-size:1rem;font-weight:800;cursor:pointer;letter-spacing:1px;">Close</button>
   </div>
 </div>
+
+<script>
+(function(){
+  const state = {
+    photo: { index: 0, total: 4 },
+    video: { index: 0, total: 3 }
+  };
+
+  function render(type) {
+    const s = state[type];
+    document.getElementById(type + 'Track').style.transform = 'translateX(-' + (s.index * 100) + '%)';
+    document.querySelectorAll('#' + type + 'Dots .c-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === s.index);
+    });
+  }
+
+  window.moveCarousel = function(type, dir) {
+    const s = state[type];
+    s.index = (s.index + dir + s.total) % s.total;
+    render(type);
+  };
+
+  window.goToSlide = function(type, idx) {
+    state[type].index = idx;
+    render(type);
+  };
+
+  // Swipe support
+  ['photo', 'video'].forEach(function(type) {
+    const el = document.getElementById(type + 'Track').parentElement;
+    let startX = 0;
+    el.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, { passive: true });
+    el.addEventListener('touchend', function(e){
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) moveCarousel(type, dx < 0 ? 1 : -1);
+    }, { passive: true });
+  });
+})();
+</script>
 
 </body>
 </html>
