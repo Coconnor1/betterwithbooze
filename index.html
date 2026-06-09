@@ -277,7 +277,9 @@ footer a{color:var(--gold);text-decoration:none;}
 .gallery-carousel-label{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--navy);font-size:.88rem;letter-spacing:1.5px;text-transform:uppercase;}
 .gallery-carousel{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3;background:var(--navy);box-shadow:0 8px 32px rgba(13,43,69,.18);}
 .carousel-track{display:flex;height:100%;transition:transform .42s cubic-bezier(.4,0,.2,1);will-change:transform;}
-.carousel-slide{min-width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;flex-shrink:0;}
+.carousel-slide{min-width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;flex-shrink:0;position:relative;overflow:hidden;}
+.carousel-slide video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.carousel-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.14);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.22);color:white;width:38px;height:38px;border-radius:50%;font-size:1.3rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:2;padding:0;}
 .carousel-btn:hover{background:rgba(255,255,255,.28);}
 .carousel-btn.prev{left:10px;}
@@ -501,21 +503,17 @@ footer a{color:var(--gold);text-decoration:none;}
         </div>
         <div class="gallery-carousel">
           <div class="carousel-track" id="photoTrack">
-            <div class="carousel-slide slide-g1">
-              <svg class="gallery-ph-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-              <span class="gallery-ph-label">Photo coming soon</span>
+            <div class="carousel-slide">
+              <img src="media/IMG_6387.jpg" alt="Better with Booze event">
             </div>
-            <div class="carousel-slide slide-g2">
-              <svg class="gallery-ph-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-              <span class="gallery-ph-label">Photo coming soon</span>
+            <div class="carousel-slide">
+              <img src="media/IMG_7369.jpg" alt="Better with Booze event">
             </div>
-            <div class="carousel-slide slide-g3">
-              <svg class="gallery-ph-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-              <span class="gallery-ph-label">Photo coming soon</span>
+            <div class="carousel-slide">
+              <img src="media/IMG_7379.jpg" alt="Better with Booze event">
             </div>
-            <div class="carousel-slide slide-g4">
-              <svg class="gallery-ph-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-              <span class="gallery-ph-label">Photo coming soon</span>
+            <div class="carousel-slide">
+              <img src="media/IMG_7381.jpg" alt="Better with Booze event">
             </div>
           </div>
           <button class="carousel-btn prev" onclick="moveCarousel('photo',-1)" aria-label="Previous photo">&#8249;</button>
@@ -537,17 +535,11 @@ footer a{color:var(--gold);text-decoration:none;}
         </div>
         <div class="gallery-carousel">
           <div class="carousel-track" id="videoTrack">
-            <div class="carousel-slide slide-g5">
-              <div class="gallery-video-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-              <span class="gallery-ph-label">Video coming soon</span>
+            <div class="carousel-slide">
+              <video src="media/IMG_6397.mp4" autoplay muted loop playsinline></video>
             </div>
-            <div class="carousel-slide slide-g6">
-              <div class="gallery-video-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-              <span class="gallery-ph-label">Video coming soon</span>
-            </div>
-            <div class="carousel-slide slide-g1">
-              <div class="gallery-video-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-              <span class="gallery-ph-label">Video coming soon</span>
+            <div class="carousel-slide">
+              <video src="media/IMG_7376.mp4" muted loop playsinline></video>
             </div>
           </div>
           <button class="carousel-btn prev" onclick="moveCarousel('video',-1)" aria-label="Previous video">&#8249;</button>
@@ -556,7 +548,6 @@ footer a{color:var(--gold);text-decoration:none;}
         <div class="carousel-dots" id="videoDots">
           <span class="c-dot active" onclick="goToSlide('video',0)"></span>
           <span class="c-dot" onclick="goToSlide('video',1)"></span>
-          <span class="c-dot" onclick="goToSlide('video',2)"></span>
         </div>
       </div>
 
@@ -901,7 +892,7 @@ document.getElementById('quoteForm').addEventListener('submit', async function(e
 (function(){
   const state = {
     photo: { index: 0, total: 4 },
-    video: { index: 0, total: 3 }
+    video: { index: 0, total: 2 }
   };
 
   function render(type) {
@@ -910,6 +901,12 @@ document.getElementById('quoteForm').addEventListener('submit', async function(e
     document.querySelectorAll('#' + type + 'Dots .c-dot').forEach(function(d, i) {
       d.classList.toggle('active', i === s.index);
     });
+    if (type === 'video') {
+      var videos = document.querySelectorAll('#videoTrack video');
+      videos.forEach(function(v, i) {
+        if (i === s.index) { v.play(); } else { v.pause(); }
+      });
+    }
   }
 
   window.moveCarousel = function(type, dir) {

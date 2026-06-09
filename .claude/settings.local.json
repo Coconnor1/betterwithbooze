@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ffmpeg -version)",
+      "Bash(magick --version)",
+      "Bash(convert --version)",
+      "Bash(cmd /c \"where ffmpeg 2>nul & where magick 2>nul & where python 2>nul\")",
+      "Bash(powershell -Command \"Get-Command ffmpeg -ErrorAction SilentlyContinue; Get-Command magick -ErrorAction SilentlyContinue; Get-Command python -ErrorAction SilentlyContinue; Get-Command python3 -ErrorAction SilentlyContinue\")",
+      "Bash(powershell -Command \"& python -c 'import sys; print\\(sys.version\\)' 2>&1\")",
+      "Bash(powershell -Command \"Get-Command node -ErrorAction SilentlyContinue; Get-Command npm -ErrorAction SilentlyContinue\")",
+      "Bash(powershell -Command ' *)",
+      "Bash(powershell)"
+    ]
+  }
+}
