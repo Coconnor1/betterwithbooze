@@ -781,7 +781,8 @@ function validateBarHours() {
   if (!start || !end) return;
   const [sh, sm] = start.split(':').map(Number);
   const [eh, em] = end.split(':').map(Number);
-  const diff = (eh * 60 + em) - (sh * 60 + sm);
+  let diff = (eh * 60 + em) - (sh * 60 + sm);
+  if (diff < 0) diff += 1440;
   if (diff < 240) {
     endInput.classList.add('field-error');
     hint.textContent = '⚠️ Minimum service is 4 hours — please adjust your end time.';

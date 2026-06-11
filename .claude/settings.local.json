@@ -9,7 +9,9 @@
       "Bash(powershell -Command \"& python -c 'import sys; print\\(sys.version\\)' 2>&1\")",
       "Bash(powershell -Command \"Get-Command node -ErrorAction SilentlyContinue; Get-Command npm -ErrorAction SilentlyContinue\")",
       "Bash(powershell -Command ' *)",
-      "Bash(powershell)"
+      "Bash(powershell)",
+      "Skill(code-review)",
+      "Skill(code-review:*)"
     ]
   }
 }
